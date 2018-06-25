@@ -174,7 +174,7 @@ namespace BeLife.Negocio
                 }
                 else
                 {
-                    throw new Exception("El cliente tiene un contrato asociado.");
+                    throw new Exception("El cliente tiene un contrato asociado, no se puede eliminar.");
                 }
 
             }

@@ -61,6 +61,7 @@
     <Compile Include="Sexo.cs" />
     <Compile Include="Tarificador.cs" />
     <Compile Include="Validaciones.cs" />
+    <Compile Include="Vehiculo.cs" />
     <Compile Include="Vivienda.cs" />
   </ItemGroup>
   <ItemGroup>
