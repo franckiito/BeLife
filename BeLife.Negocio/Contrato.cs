@@ -171,7 +171,7 @@ namespace BeLife.Negocio
                 Entity.Contrato con = bbdd.Contrato.Where(x => x.Numero == this.Numero).FirstOrDefault();
                 if (con != null)
                 {
-                    if(DateTime.Now > con.FinVigencia)
+                    if(DateTime.Now > con.FechaFinVigencia)
                     {
                         throw new Exception(" No se pueden hacer más modificaciones al contrato, ya acabo la fecha termino.");
                     }
@@ -210,7 +210,7 @@ namespace BeLife.Negocio
                 if (con != null)
                 {
                     //Cambia estado vigencia contrato de la BD y guarda los cambios
-                    con.EstaVigente = false;
+                    con.Vigente = false;
                     bbdd.SaveChanges();
                     return true;
                 }
