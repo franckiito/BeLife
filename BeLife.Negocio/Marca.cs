@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BeLife.Negocio
 {
-    class Marca
+    public class Marca
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

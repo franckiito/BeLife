@@ -61,6 +61,7 @@
     <Compile Include="Sexo.cs" />
     <Compile Include="Tarificador.cs" />
     <Compile Include="Validaciones.cs" />
+    <Compile Include="Vivienda.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeLife.Entity\BeLife.Entity.csproj">

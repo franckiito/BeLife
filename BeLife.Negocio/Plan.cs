@@ -14,6 +14,12 @@ namespace BeLife.Negocio
         public string Nombre { get; set; }
         public double PrimaBase { get; set; }
         public string PolizaActual { get; set; }
+        
+        public TipoContrato TipoContrato = new TipoContrato();
+        public string DescripcionContrato
+        {
+            get { return TipoContrato.Descripcion; }
+        }
 
         public Plan()
         {
