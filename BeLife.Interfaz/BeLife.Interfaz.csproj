@@ -120,5 +120,11 @@
   <ItemGroup>
     <Resource Include="Imagenes\Logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeLife.Negocio\BeLife.Negocio.csproj">
+      <Project>{52356929-c486-49da-9c17-0451a638dcd1}</Project>
+      <Name>BeLife.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

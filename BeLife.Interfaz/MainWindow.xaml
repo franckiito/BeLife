@@ -10,6 +10,23 @@
         x:Class="BeLife.Interfaz.MainWindow"    
         mc:Ignorable="d"
         Title="BeLife Seguros" Height="700" Width="1000" ShowMinButton="False" ShowMaxRestoreButton="False" >
+
+    <Controls:MetroWindow.Resources>
+
+        <DataTemplate x:Key="SexoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EstadoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Controls:MetroWindow.Resources>
+
     <Grid>
 
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="79" Margin="24,15,0,0" VerticalAlignment="Top" Width="258" Source="./imagenes/Logo.png"/>
@@ -39,7 +56,7 @@
         <Controls:Flyout Visibility="Collapsed" x:Name="FlyU"   Position="Right" Theme="Light" Width="925" Grid.Row="0" Foreground="Black" Header="Administrar Usuarios" Margin="0,106,0,0"  Background="#FFE4E2E2">
             <Grid Height="471" Margin="10,0,23,0">
 
-                <TextBox x:Name="txtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="159,0,583,393" Height="40" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="White" CaretBrush="White" SelectionBrush="Black" >
+                <TextBox x:Name="txtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="159,0,583,393" Height="40" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" CaretBrush="White" SelectionBrush="Black" >
                     <TextBox.Effect>
                         <DropShadowEffect/>
                     </TextBox.Effect>
@@ -47,46 +64,48 @@
                 <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="Black" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="70,54,715,367" />
 
                 <Label Content="Nombres" HorizontalAlignment="Left" Margin="55,146,0,0" VerticalAlignment="Top" Width="72" Foreground="Black" FontWeight="Bold" FontSize="14"/>
-                <TextBox x:Name="txtNombres" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="White" Margin="159,135,583,299" CaretBrush="White" >
+                <TextBox x:Name="txtNombres" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Margin="159,135,583,299" CaretBrush="White" >
                     <TextBox.Effect>
                         <DropShadowEffect/>
                     </TextBox.Effect>
                 </TextBox>
 
                 <Label Content="Apellidos" HorizontalAlignment="Left" Margin="354,146,0,0" VerticalAlignment="Top" Width="72" Foreground="#FF171616" RenderTransformOrigin="0.431,2.5" FontWeight="Bold" FontSize="14"/>
-                <TextBox x:Name="txtApellidos" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="#FFF9F0F0" Margin="458,136,284,299" CaretBrush="White" >
+                <TextBox x:Name="txtApellidos" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109"  Margin="458,136,284,299" CaretBrush="White" >
                     <TextBox.Effect>
                         <DropShadowEffect />
                     </TextBox.Effect>
                 </TextBox>
 
                 <Label  Content="Sexo" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="369,214,466,221"/>
-                <ComboBox  x:Name="Sexos" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="458,214,284,221" ItemsSource="{Binding sexo, ElementName=metroWindow}"  Foreground="White" BorderBrush="#FF331B4B" >
+                <ComboBox  x:Name="CboSexos" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="458,214,284,221"  BorderBrush="#FF331B4B" 
+                           IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}">
                     <ComboBox.Effect>
                         <DropShadowEffect/>
                     </ComboBox.Effect>
                 </ComboBox>
 
                 <Label  Content="Fecha Nacimiento" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="10,317,746,109"/>
-                <DatePicker x:Name="dateFecha" Canvas.Left="256" SelectedDate="{x:Static System:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="159,308,583,124" Foreground="White">
+                <DatePicker x:Name="FechaNacimiento" Canvas.Left="256" SelectedDate="{x:Static System:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="159,308,583,124">
                     <DatePicker.Effect>
                         <DropShadowEffect/>
                     </DatePicker.Effect>
                 </DatePicker>
 
                 <Label  Content="Estado Civil" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="34,214,738,207"/>
-                <ComboBox  x:Name="EstadoCivil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="159,213,583,221" ItemsSource="{Binding estadocivil, ElementName=metroWindow}"  Foreground="White" >
+                <ComboBox  x:Name="CboEstadoCivil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="159,213,583,221" 
+                           IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource EstadoTemplate}">
                     <ComboBox.Effect>
                         <DropShadowEffect/>
                     </ComboBox.Effect>
                 </ComboBox>
 
                 <!--Cliente Botones-->
-                <Button Content="Buscar" HorizontalAlignment="Left" Margin="420,38,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="-2.06,-7.722" Height="40" FontSize="14"/>
+                <Button x:Name="BtnBuscarCliente" Content="Buscar" HorizontalAlignment="Left" Margin="420,38,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="-2.06,-7.722" Height="40" FontSize="14" Click="BtnBuscarCliente_Click"/>
                 <Button Content="Listar" HorizontalAlignment="Left" Margin="636,38,0,0" VerticalAlignment="Top" Width="124" Height="40" FontSize="14"/>
-                <Button Content="Guardar" HorizontalAlignment="Left" Margin="420,362,0,0" VerticalAlignment="Top" Width="107" Height="44" FontSize="14"/>
-                <Button Content="Eliminar" HorizontalAlignment="Left" Margin="582,362,0,0" VerticalAlignment="Top" Width="104" Height="44" FontSize="14"/>
-                <Button Content="Actualizar" HorizontalAlignment="Left" Margin="734,362,0,0" VerticalAlignment="Top" Width="106" Height="44" FontSize="14"/>
+                <Button x:Name="BtnGuardaCliente" Content="Guardar" HorizontalAlignment="Left" Margin="420,362,0,0" VerticalAlignment="Top" Width="107" Height="44" FontSize="14" Click="BtnGuardaCliente_Click"/>
+                <Button x:Name="BtnEliminaCliente" Content="Eliminar" HorizontalAlignment="Left" Margin="582,362,0,0" VerticalAlignment="Top" Width="104" Height="44" FontSize="14" Click="BtnEliminaCliente_Click"/>
+                <Button x:Name="BtnActualizaCliente" Content="Actualizar" HorizontalAlignment="Left" Margin="734,362,0,0" VerticalAlignment="Top" Width="106" Height="44" FontSize="14" Click="BtnActualizaCliente_Click"/>
             </Grid>
 
         </Controls:Flyout>
