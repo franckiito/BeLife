@@ -121,6 +121,10 @@ namespace BeLife.Negocio
             
         }
 
+        /// <summary>
+        /// Actualiza los datos del Cliente.
+        /// </summary>
+        /// <returns></returns>
         public bool Update()
         {
             BeLifeEntities bbdd = new BeLifeEntities();
@@ -151,6 +155,10 @@ namespace BeLife.Negocio
             }
         }
 
+        /// <summary>
+        /// Elimina el Cliente.
+        /// </summary>
+        /// <returns></returns>
         public bool Delete()
         {
             BeLifeEntities bbdd = new BeLifeEntities();
