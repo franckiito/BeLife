@@ -16,10 +16,6 @@ namespace BeLife.Negocio
         public string PolizaActual { get; set; }
         
         public TipoContrato TipoContrato = new TipoContrato();
-        public string DescripcionContrato
-        {
-            get { return TipoContrato.Descripcion; }
-        }
 
         public Plan()
         {
@@ -32,6 +28,7 @@ namespace BeLife.Negocio
             Nombre = string.Empty;
             PrimaBase = 0;
             PolizaActual = string.Empty;
+            TipoContrato = new TipoContrato();
         }
 
         /// <summary>
@@ -71,6 +68,25 @@ namespace BeLife.Negocio
             {
                 BeLifeEntities bbdd = new BeLifeEntities();
                 List<Entity.Plan> listaDatos = bbdd.Plan.ToList<Entity.Plan>();
+                List<Plan> list = SyncList(listaDatos);
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Leer Todos los planes. " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Retorna todos los registros de la tabla Plan por el tipo contrato.
+        /// </summary>
+        /// <returns>List<Plan></returns>
+        public List<Plan> ReadAllByTipoContrato()
+        {
+            try
+            {
+                BeLifeEntities bbdd = new BeLifeEntities();
+                List<Entity.Plan> listaDatos = bbdd.Plan.Where(x => x.IdTipoContrato == this.TipoContrato.Id).ToList<Entity.Plan>();
                 List<Plan> list = SyncList(listaDatos);
                 return list;
             }

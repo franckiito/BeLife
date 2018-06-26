@@ -10,19 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro.Controls;
 
 namespace BeLife.Interfaz
 {
     /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
+    /// Lógica de interacción para Menu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Menu : MetroWindow
     {
-        public MainWindow()
+        public Menu()
         {
             InitializeComponent();
+        }
+
+        private void Salir_Click(object sender, RoutedEventArgs e)
+        {
+            FlyBeLife.IsOpen = true;
         }
     }
 }

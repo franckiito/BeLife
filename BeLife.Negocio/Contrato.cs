@@ -89,26 +89,13 @@ namespace BeLife.Negocio
 
                     CommonBC.Syncronize(this, contrato);
 
-                    //con.Numero = Numero;
-                    //con.Creacion = Creacion;
-                    //con.Termino = Termino;
-                    //con.RutCliente = Titular.Rut;
-                    //con.CodigoPlan = PlanAsociado.Id;
-                    //con.InicioVigencia = InicioVigencia;
-                    //con.FinVigencia = FinVigencia;
-                    //con.EstaVigente = EstaVigente;
-                    //con.ConDeclaracionDeSalud = ConDeclaracionDeSalud;
-                    //con.PrimaAnual = PrimaAnual;
-                    //con.PrimaMensual = PrimaMensual;
-                    //con.Observaciones = Observaciones;
-
                     CommonBC.Syncronize(this.Titular, contrato.Cliente);
                     contrato.RutCliente = Titular.Rut;
 
                     CommonBC.Syncronize(this.PlanAsociado, contrato.Plan);
                     contrato.CodigoPlan = PlanAsociado.Id;
 
-                    //agrega el contrato a DB y guarda los cambios
+                    //Agrega el contrato a DB y guarda los cambios
                     bbdd.Contrato.Add(contrato);
                     bbdd.SaveChanges();
                     return true;
