@@ -69,33 +69,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Menu.xaml.cs">
-      <DependentUpon>Menu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TabControl.xaml.cs">
-      <DependentUpon>TabControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Vehiculo.xaml.cs">
-      <DependentUpon>Vehiculo.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Menu.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TabControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Vehiculo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -113,7 +95,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Imagenes\User-Login.metrop" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -123,18 +104,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Imagenes\Camara.png" />
-    <Resource Include="Imagenes\Juego.png" />
-    <Resource Include="Imagenes\Llamar.png" />
+    <Resource Include="Imagenes\AdmContra.png" />
+    <Resource Include="Imagenes\AdmU.png" />
+    <Resource Include="Imagenes\Contraste.png" />
+    <Resource Include="Imagenes\ListarC.png" />
+    <Resource Include="Imagenes\ListarU.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Imagenes\Logo.png" />
-    <Resource Include="Imagenes\Musica.png" />
-    <Resource Include="Imagenes\Pendrive.png" />
-    <Resource Include="Imagenes\Reloj.png" />
-    <Resource Include="Imagenes\Salir.png" />
-    <Resource Include="Imagenes\User.png" />
-    <Resource Include="Imagenes\Video.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
