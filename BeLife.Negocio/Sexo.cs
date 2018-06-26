@@ -10,6 +10,7 @@ namespace BeLife.Negocio
 {
     public class Sexo
     {
+        //Camilo Chupalo
         public int Id { get; set; }
         public string Descripcion { get; set; }
 
