@@ -10,8 +10,8 @@ namespace BeLife.Negocio
     public class Vehiculo
     {
         public string Patente { get; set; }
-        public int IdMarca { get; set; }
-        public int IdModelo { get; set; }
+        public int IdMarca { get; set; } //
+        public int IdModelo { get; set; } //
         public int Anho { get; set; }
         public MarcaModelo MarcaModelo { get; set; }
 
