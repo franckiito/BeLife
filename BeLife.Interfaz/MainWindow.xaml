@@ -217,7 +217,7 @@
             <Canvas RenderTransformOrigin="0.274,0.863"  >
                 <Grid Height="488" Width="925">
 
-                    <TextBox x:Name="LRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,763,413" Height="33" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Background="White" CaretBrush="White" >
+                    <TextBox x:Name="TxtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,763,413" Height="33" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Background="White" CaretBrush="White" >
                         <TextBox.Effect>
                             <DropShadowEffect/>
                         </TextBox.Effect>
@@ -225,7 +225,7 @@
                     <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="Black" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,16,849,446" />
 
                     <Label  Content="Sexo" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="195,15,670,447"/>
-                    <ComboBox  x:Name="LSexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="195,42,586,413" ItemsSource="{Binding sexo, ElementName=metroWindow}" >
+                    <ComboBox  x:Name="CboSexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="195,42,586,413" ItemsSource="{Binding sexo, ElementName=metroWindow}" >
                         <ComboBox.Effect>
                             <DropShadowEffect/>
                         </ComboBox.Effect>
