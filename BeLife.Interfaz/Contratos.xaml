@@ -68,7 +68,7 @@
                         <DropShadowEffect/>
                     </ComboBox.Effect>
                 </ComboBox>
-                
+
                 <Label  Content="Plan" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="10,250,429,10"/>
                 <ComboBox x:Name="CboPlan" Controls:TextBoxHelper.Watermark="Seleccione su Plan" SelectedIndex="0" Margin="124,254,174,5" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" >
                     <ComboBox.Effect>
@@ -149,7 +149,7 @@
 
                         <Label  Content="Año Automovil" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="41" Canvas.Top="214"/>
 
-                        <Button x:Name="BtnAgregarAutomovil" Canvas.Left="41" Canvas.Top="335" Height="38" Width="280" Click="Vehiculo_Click" Content="Agregar Seguro Automovil" FontSize="14"  />
+                        <Button x:Name="BtnAgregarAutomovil" Canvas.Left="41" Canvas.Top="335" Height="38" Width="280" Content="Agregar Seguro Automovil" FontSize="14" Click="BtnAgregarAutomovil_Click"  />
                         <TextBox x:Name="TxtAnioVehiculo" Controls:TextBoxHelper.Watermark="Ingrese Año de Contruccion" Controls:TextBoxHelper.ClearTextButton="True"  Canvas.Left="41" Canvas.Top="248" Height="26" Width="280"/>
                     </Canvas>
                 </Controls:Flyout>
@@ -163,7 +163,7 @@
                         <Label  Content="Direccion" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="54"/>
                         <TextBox x:Name="TxtCodigoPostal" Canvas.Left="86" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Codigo Postal" Canvas.Top="23" Height="23" Width="259" />
                         <Label  Content="Valor Inmueble" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="110" RenderTransformOrigin="-3.148,-0.19"/>
-                        <TextBox x:Name="TxtValorVivienda" Controls:TextBoxHelper.Watermark="Ingrese Valor Inmueble" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="18.368,7.628" Foreground="Black" Canvas.Left="86" Canvas.Top="139" Width="259" >
+                        <TextBox x:Name="TxtValorInmueble" Controls:TextBoxHelper.Watermark="Ingrese Valor Inmueble" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="18.368,7.628" Foreground="Black" Canvas.Left="86" Canvas.Top="139" Width="259" >
                             <TextBox.Effect>
                                 <DropShadowEffect/>
                             </TextBox.Effect>
@@ -191,9 +191,12 @@
                         </ComboBox>
 
                         <Label  Content="Año Contruccion" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="287"/>
-                        <TextBox x:Name="TxtAnioConstruccion" Controls:TextBoxHelper.Watermark="Ingrese Año de Contruccion" Controls:TextBoxHelper.ClearTextButton="True" Canvas.Left="86" Canvas.Top="321" Height="26" Width="259"/>
+                        <TextBox x:Name="TxtAnioVivienda" Controls:TextBoxHelper.Watermark="Ingrese Año de Contruccion" Controls:TextBoxHelper.ClearTextButton="True" Canvas.Left="86" Canvas.Top="321" Height="26" Width="259"/>
 
-                        <Button x:Name="BtnAgregarVivienda" Canvas.Left="75" Canvas.Top="384" Height="38" Width="280" Click="Vivienda_Click" Content="Agregar Seguro Vivienda" FontSize="14"  />
+                        <Label  Content="Valor Contenido" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="358"/>
+                        <TextBox x:Name="TxtValorContenido" Controls:TextBoxHelper.Watermark="Ingrese el Valor Contenido" Controls:TextBoxHelper.ClearTextButton="True" Canvas.Left="86" Canvas.Top="387" Height="26" Width="259"/>
+
+                        <Button x:Name="BtnAgregarVivienda" Canvas.Left="86" Canvas.Top="436" Height="38" Width="280" Click="BtnAgregaVivienda_Click" Content="Agregar Seguro Vivienda" FontSize="14"  />
                     </Canvas>
                 </Controls:Flyout>
 
@@ -201,7 +204,7 @@
 
 
             </Grid>
-            
+
         </Canvas>
 
         <!--</Controls:Flyout> -->

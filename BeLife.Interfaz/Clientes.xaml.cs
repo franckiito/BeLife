@@ -145,6 +145,31 @@ namespace BeLife.Interfaz
             return valida;
         }
 
+        bool Contraste = false;
+
+        private void BtnContraste_Click(object sender, RoutedEventArgs e)
+        {
+            Contraste = !Contraste;
+            if (Contraste)
+            {
+
+                {
+                    SolidColorBrush PinkColor = new SolidColorBrush(Color.FromRgb(242, 0, 252));
+
+                    Opciones.Background = Brushes.Black;
+                    Inicio.Background = Brushes.Black;
+                }
+            }
+            else
+            {
+                SolidColorBrush FlyColor = new SolidColorBrush(Color.FromRgb(131, 50, 136));
+                Resources.MergedDictionaries.Clear();
+                Opciones.Background = Brushes.White;
+                Inicio.Background = Brushes.White;
+
+            }
+        }
+
         /// <summary>
         /// Limpia los Datos del formulario y carga los combobox
         /// </summary>

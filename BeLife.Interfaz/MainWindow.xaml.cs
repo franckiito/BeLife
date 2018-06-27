@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MetroSegurosBeLife;
+using System.Windows.Markup;
 
 namespace BeLife.Interfaz
 {
@@ -106,10 +107,46 @@ namespace BeLife.Interfaz
             this.Close();
         }
 
+        bool Contraste = false;
+
+        private void BtnContraste_Click(object sender, RoutedEventArgs e)
+        {
+            Contraste = !Contraste;
+            if (Contraste)
+            {
+
+                {
+                    SolidColorBrush PinkColor = new SolidColorBrush(Color.FromRgb(242, 0, 252));
+
+
+                    Opciones.Background = Brushes.Black;
+                    Inicio.Background = Brushes.Black;
+                    btnAdministradorUsuarios.Background = PinkColor;
+                    btnAdministradorContratos.Background = PinkColor;
+                    btnListarContratos.Background = PinkColor;
+                    btnListarUsuarios.Background = PinkColor;
 
 
 
 
+
+                }
+            }
+            else
+            {
+                SolidColorBrush FlyColor = new SolidColorBrush(Color.FromRgb(131, 50, 136));
+                Resources.MergedDictionaries.Clear();
+                Opciones.Background = Brushes.White;
+                Inicio.Background = Brushes.White;
+
+                btnAdministradorUsuarios.Background = Brushes.White;
+                btnAdministradorContratos.Background = Brushes.White;
+                btnListarContratos.Background = Brushes.White;
+                btnListarUsuarios.Background = Brushes.White;
+
+
+            }
+        }
     }
 
    

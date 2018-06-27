@@ -49,7 +49,13 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="CommonBC.cs" />
+    <Compile Include="ContratoVehiculo.cs" />
+    <Compile Include="ContratoVivienda.cs" />
+    <Compile Include="ITarificador.cs" />
     <Compile Include="MarcaModelo.cs" />
+    <Compile Include="RecargoHogar.cs" />
+    <Compile Include="RecargoVehiculo.cs" />
+    <Compile Include="RecargoVida.cs" />
     <Compile Include="TipoContrato.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Marca.cs" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BeLife.Negocio
 {
     public class TipoContrato
-    {
+    {   
         public int Id { get; set; }
         public string Descripcion { get; set; }
 

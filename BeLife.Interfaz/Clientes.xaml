@@ -26,7 +26,7 @@
 
     </Controls:MetroWindow.Resources>
     
-    <Grid>
+    <Grid Name="Inicio">
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="79" Margin="24,15,0,0" VerticalAlignment="Top" Width="258" Source="imagenes/Logo.png"/>
         <Label x:Name="Titulo" Content="Seguros" HorizontalAlignment="Left" Margin="307,34,0,0" VerticalAlignment="Top" Height="60" Width="132" FontSize="28" FontFamily="Comic Sans MS" FontWeight="Bold" Foreground="#FF803A82"/>
         <Button x:Name="btnContraste" HorizontalAlignment="Left" Margin="835,21,0,0" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
@@ -38,7 +38,7 @@
         </Button>
         <!--Administrar Clientes-->
         <!-- <mah:Flyout Visibility="Visible" x:Name="FClientes"   Position="Right" Theme="Light" Width="925" Grid.Row="0" Foreground="Black" Header="Administrar Usuarios" Margin="0,106,0,0"  Background="#FFE4E2E2">-->
-        <Grid Margin="10,106,10,99" Background="#FFEEE9E9">
+        <Grid Name="Opciones" Margin="10,106,10,99" Background="#FFEEE9E9">
 
             <TextBox x:Name="TxtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="159,0,583,386" Height="22" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="Black" CaretBrush="White" SelectionBrush="Black" >
                 <TextBox.Effect>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace BeLife.Negocio
@@ -36,7 +37,7 @@ namespace BeLife.Negocio
             }
             catch (Exception ex)
             {
-                throw new Exception("Valida Rut: " + ex.Message);
+                throw new Exception( ex.Message);
             }
         }
 
@@ -441,6 +442,192 @@ namespace BeLife.Negocio
                 {
                     valida = false;
                     throw new Exception("Debe ingresar observacion.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        
+        /// <summary>
+        /// Valida que el año del vehiculo sea correcto.
+        /// </summary>
+        /// <param name="anio"></param>
+        /// <returns></returns>
+        public bool ValidaAnhoVehiculo(int anio)
+        {
+            try
+            {
+                bool valida = false;
+
+                if (anio >= 1980 && anio <= DateTime.Now.Year)
+                {
+                    valida = true;
+                }
+                else
+                {
+                    valida = false;
+                    throw new Exception("Debe ingresar un año valido.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// Valida que la patente tenga el formato correcto.
+        /// </summary>
+        /// <param name="patente"></param>
+        /// <returns>Bool</returns>
+        public bool ValidaPatente(string patente)
+        {
+            try
+            {
+                bool valida = false;
+
+                if (!patente.Equals(String.Empty) && !patente.Equals(null) && !patente.Equals(""))
+                {
+                    valida = true;
+                    // AAAA99
+                    string regex1 = "^[A-Z]{4}[0-9]{2}$";
+                    // AAA999
+                    string regex2 = "^[A-Z]{3}[0-9]{3}$";
+                    // AA9999
+                    string regex3 = "^[A-Z]{2}[0-9]{4}$";
+
+                    if (Regex.Match(patente, regex1).Success || Regex.Match(patente, regex2).Success ||
+                            Regex.Match(patente, regex3).Success)
+                    {
+                        valida = true;
+                    }
+                    else
+                    {
+                        valida = false;
+                        throw new Exception("Debe una patente valida.");
+                    }
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        /// <summary>
+        /// Valida el codigo postal de la vivienda
+        /// </summary>
+        /// <param name="codigoPostal"></param>
+        /// <returns>Bool</returns>
+        public bool ValidaCodigoPostal(int codigoPostal)
+        {
+            try
+            {
+                bool valida = false;
+
+                if (codigoPostal >= 1000000 && codigoPostal <= 9999999)
+                {
+                    valida = true;
+                }
+                else
+                {
+                    valida = false;
+                    throw new Exception("Debe ingresar codigo postal Valido.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Valida que el año de la vivienda sea Valido.
+        /// </summary>
+        /// <param name="anio"></param>
+        /// <returns></returns>
+        public bool ValidaAnhoVivienda(int anio)
+        {
+            try
+            {
+                bool valida = false;
+
+                if (anio >= 1910 && anio <= DateTime.Now.Year)
+                {
+                    valida = true;
+                }
+                else
+                {
+                    valida = false;
+                    throw new Exception("Debe ingresar año Valido para la vivienda.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Valida que la direccion no sea nula.
+        /// </summary>
+        /// <param name="direccion"></param>
+        /// <returns></returns>
+        public bool ValidaDireccion(string direccion)
+        {
+            try
+            {
+                bool valida = true;
+
+                if (string.IsNullOrEmpty(direccion))
+                {
+                    valida = false;
+                    throw new Exception("Debe Ingresar Direccion.");
+                }
+
+                return valida;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// Valida que el valor inmueble sea valido.
+        /// </summary>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public bool ValidaValorInmueble(double valor)
+        {
+            try
+            {
+                bool valida = false;
+
+                if (valor > 0)
+                {
+                    valida = true;
+                }
+                else
+                {
+                    valida = false;
+                    throw new Exception("Debe ingresar un valor de inmueble Valido.");
                 }
 
                 return valida;

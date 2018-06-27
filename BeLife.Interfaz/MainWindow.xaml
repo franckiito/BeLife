@@ -12,11 +12,11 @@
     
         mc:Ignorable="d"
         Title="BeLife Seguros" Height="700" Width="1000" WindowStartupLocation="CenterScreen" ShowMinButton="False" ShowMaxRestoreButton="False" >
-    <Grid>
+    <Grid Name="Inicio">
 
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="79" Margin="24,15,0,0" VerticalAlignment="Top" Width="258" Source="imagenes/Logo.png"/>
         <Label x:Name="Titulo" Content="Seguros" HorizontalAlignment="Left" Margin="307,34,0,0" VerticalAlignment="Top" Height="48" Width="132" FontSize="28" FontFamily="Comic Sans MS" FontWeight="Bold" Foreground="#FF803A82"/>
-        <Button x:Name="btnContraste" HorizontalAlignment="Left" Margin="835,21,0,0" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
+        <Button x:Name="BtnContraste" HorizontalAlignment="Left" Margin="835,21,0,0" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnContraste_Click"  >
             <Image Source="imagenes/Contraste.png" Stretch="Fill" Height="51" Width="66"/>
         </Button>
 

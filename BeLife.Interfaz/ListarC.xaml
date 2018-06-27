@@ -11,13 +11,13 @@
         Title="Seguro BeLife Listar Contratos" Height="700" Width="1000" WindowStartupLocation="CenterScreen" ShowMinButton="False" ShowMaxRestoreButton="False" >
 
 
-    <Grid>
+    <Grid Name="Inicio">
         <Button x:Name="btninicio" HorizontalAlignment="Left" Margin="0,591,0,0" Click="btninicio_Click" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
             <Image Source="imagenes/flecha.png" Stretch="Fill" Height="51" Width="66"/>
         </Button>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="79" Margin="24,15,0,0" VerticalAlignment="Top" Width="258" Source="imagenes/Logo.png"/>
         <Label x:Name="Titulo" Content="Seguros" HorizontalAlignment="Left" Margin="307,34,0,0" VerticalAlignment="Top" Height="48" Width="132" FontSize="28" FontFamily="Comic Sans MS" FontWeight="Bold" Foreground="#FF803A82"/>
-        <Button x:Name="btnContraste" HorizontalAlignment="Left" Margin="835,21,0,0" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
+        <Button x:Name="BtnContraste" HorizontalAlignment="Left" Margin="835,21,0,0" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
             <Image Source="imagenes/Contraste.png" Stretch="Fill" Height="51" Width="66"/>
         </Button>
         <GridSplitter HorizontalAlignment="Left" Height="12" Margin="0,94,0,0" VerticalAlignment="Top" Width="992" Background="#FF803A82"/>
@@ -26,10 +26,10 @@
         <!-- <mah:Flyout  x:Name="FlyListarC"  Visibility="Visible" Position="Right" Theme="Light" Width="925" Grid.Row="0" Foreground="Black" Header= "Listar Clientes" Margin="0,111,10,131"  Background="#FFE4E2E2">-->
         <Canvas RenderTransformOrigin="0.274,0.863"  >
 
-            <Grid Height="481" Width="972" Canvas.Left="10" Canvas.Top="110" Background="#FFEEE9E9">
+            <Grid Name="Opciones" Height="481" Width="972" Canvas.Left="10" Canvas.Top="110" Background="#FFEEE9E9">
 
 
-                <TextBox x:Name="CoRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,759,413" Height="34" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" CaretBrush="White" Foreground="Black" SelectionBrush="White" TextChanged="CoRut_TextChanged" >
+                <TextBox x:Name="TxtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,759,413" Height="34" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" CaretBrush="White" Foreground="Black" SelectionBrush="White" >
                     <TextBox.Effect>
                         <DropShadowEffect/>
                     </TextBox.Effect>
