@@ -10,7 +10,22 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         Title="Seguro BeLife Clientes" Height="700" Width="1000" WindowStartupLocation="CenterScreen" ShowMinButton="False" ShowMaxRestoreButton="False" >
 
+    <Controls:MetroWindow.Resources>
 
+        <DataTemplate x:Key="SexoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EstadoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Controls:MetroWindow.Resources>
+    
     <Grid>
         <Image x:Name="Logo" HorizontalAlignment="Left" Height="79" Margin="24,15,0,0" VerticalAlignment="Top" Width="258" Source="imagenes/Logo.png"/>
         <Label x:Name="Titulo" Content="Seguros" HorizontalAlignment="Left" Margin="307,34,0,0" VerticalAlignment="Top" Height="60" Width="132" FontSize="28" FontFamily="Comic Sans MS" FontWeight="Bold" Foreground="#FF803A82"/>
@@ -25,54 +40,56 @@
         <!-- <mah:Flyout Visibility="Visible" x:Name="FClientes"   Position="Right" Theme="Light" Width="925" Grid.Row="0" Foreground="Black" Header="Administrar Usuarios" Margin="0,106,0,0"  Background="#FFE4E2E2">-->
         <Grid Margin="10,106,10,99" Background="#FFEEE9E9">
 
-            <TextBox x:Name="txtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="159,0,583,386" Height="22" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="Black" CaretBrush="White" SelectionBrush="Black" >
+            <TextBox x:Name="TxtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="159,0,583,386" Height="22" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="Black" CaretBrush="White" SelectionBrush="Black" >
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
-            <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="Black" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="70,54,818,386" />
+            <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="Black" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="70,49,818,386" />
 
             <Label Content="Nombres" HorizontalAlignment="Left" Margin="69,106,0,0" VerticalAlignment="Top" Width="72" Foreground="Black" FontWeight="Bold" FontSize="14"/>
-            <TextBox x:Name="txtNombres" Controls:TextBoxHelper.Watermark="Ingrese sus Nombres" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="Black" Margin="159,105,583,329" CaretBrush="White" >
+            <TextBox x:Name="TxtNombres" Controls:TextBoxHelper.Watermark="Ingrese sus Nombres" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="Black" Margin="159,105,583,329" CaretBrush="White" >
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
 
             <Label Content="Apellidos" HorizontalAlignment="Left" Margin="69,157,0,0" VerticalAlignment="Top" Width="72" Foreground="#FF171616" RenderTransformOrigin="0.431,2.5" FontWeight="Bold" FontSize="14"/>
-            <TextBox x:Name="txtApellidos" Controls:TextBoxHelper.Watermark="Ingrese sus Apellidos" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="#FF0C0C0C" Margin="159,157,583,278" CaretBrush="White" >
+            <TextBox x:Name="TxtApellidos" Controls:TextBoxHelper.Watermark="Ingrese sus Apellidos" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="3.697,5.117" Canvas.Left="47" Canvas.Top="109" Foreground="#FF0C0C0C" Margin="159,157,583,278" CaretBrush="White" >
                 <TextBox.Effect>
                     <DropShadowEffect />
                 </TextBox.Effect>
             </TextBox>
 
             <Label  Content="Sexo" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="70,212,831,223"/>
-            <ComboBox  x:Name="Sexos" Controls:TextBoxHelper.Watermark="Seleccione su Sexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="159,212,583,223" ItemsSource="{Binding sexo, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF331B4B" >
+            <ComboBox  x:Name="CboSexo" Controls:TextBoxHelper.Watermark="Seleccione su Sexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="159,212,583,223" Foreground="Black" BorderBrush="#FF331B4B" 
+                       IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
 
             <Label  Content="Fecha Nacimiento" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="10,308,831,124"/>
-            <DatePicker x:Name="dateFecha" Canvas.Left="256" SelectedDate="{x:Static System:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="159,308,583,124" Foreground="Black">
+            <DatePicker x:Name="FechaNacimiento" Canvas.Left="256" SelectedDate="{x:Static System:DateTime.Now}"    FontWeight="Bold" FontSize="14" Canvas.Top="244" Margin="159,308,583,124" Foreground="Black">
                 <DatePicker.Effect>
                     <DropShadowEffect/>
                 </DatePicker.Effect>
             </DatePicker>
 
             <Label  Content="Estado Civil" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="34,261,831,175"/>
-            <ComboBox  x:Name="EstadoCivil" Controls:TextBoxHelper.Watermark="Seleccione Estado Civil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="159,259,583,175" ItemsSource="{Binding estadocivil, ElementName=metroWindow}"  Foreground="#FF111111" >
+            <ComboBox  x:Name="CboEstadoCivil" Controls:TextBoxHelper.Watermark="Seleccione Estado Civil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="159,259,583,175"   Foreground="#FF111111" 
+                       IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource EstadoTemplate}">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
 
             <!--Cliente Botones-->
-            <Button Content="Buscar" HorizontalAlignment="Left" Margin="455,43,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="-2.06,-7.722" Height="40" FontSize="14"/>
+            <Button x:Name="BtnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="455,43,0,0" VerticalAlignment="Top" Width="107" RenderTransformOrigin="-2.06,-7.722" Height="40" FontSize="14" Click="BtnBuscar_Click"/>
             <Button Content="Listar" HorizontalAlignment="Left" Margin="665,43,0,0" VerticalAlignment="Top" Width="124" Height="40" FontSize="14"/>
-            <Button Content="Agregar" HorizontalAlignment="Left" Margin="136,378,0,0" VerticalAlignment="Top" Width="107" Height="44" FontSize="14"/>
-            <Button Content="Eliminar" HorizontalAlignment="Left" Margin="594,378,0,0" VerticalAlignment="Top" Width="104" Height="44" FontSize="14"/>
-            <Button Content="Actualizar" HorizontalAlignment="Left" Margin="364,378,0,0" VerticalAlignment="Top" Width="106" Height="44" FontSize="14"/>
+            <Button x:Name="BtnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="136,378,0,0" VerticalAlignment="Top" Width="107" Height="44" FontSize="14" Click="BtnAgregar_Click"/>
+            <Button x:Name="BtnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="594,378,0,0" VerticalAlignment="Top" Width="104" Height="44" FontSize="14" Click="BtnEliminar_Click"/>
+            <Button x:Name="BtnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="364,378,0,0" VerticalAlignment="Top" Width="106" Height="44" FontSize="14" Click="BtnActualizar_Click"/>
         </Grid>
 
 

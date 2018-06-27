@@ -125,22 +125,23 @@
                     </TextBlock.Effect><Run Text="Sin pre"/><Run Text="-"/><Run Text="exi"/><Run Text="s"/><Run Text="tencia"/></TextBlock>
 
                 <!--Seguro Vehiculo-->
-                <Controls:Flyout x:Name="SeguroVehiculo" Visibility="Collapsed" Width="455" Foreground="White" Header="Seguro Vehiculo" Theme="Light" Margin="-586,1,0,-185" Grid.RowSpan="2">
+                <Controls:Flyout x:Name="SeguroVehiculo" Visibility="Collapsed" Width="455" Foreground="White" Header="Seguro Vehiculo" Theme="Light" Margin="-586,1,0,-198" Grid.RowSpan="2">
                     <Controls:Flyout.Background>
                         <SolidColorBrush Color="#FF252424" Opacity="0.9"/>
                     </Controls:Flyout.Background>
                     <Canvas Height="482" Margin="22,0,0,0">
 
-                        <TextBox x:Name="txtpatente" Canvas.Left="41" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese numero patente" Canvas.Top="59" Height="23" Width="280" />
+                        <Label  Content="Patente" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="41" Canvas.Top="25"/>
+                        <TextBox x:Name="TxtPatente" Canvas.Left="41" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese numero patente" Canvas.Top="59" Height="23" Width="280" />
                         <Label  Content="Modelo" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="41" Canvas.Top="148" RenderTransformOrigin="-3.148,-0.19"/>
-                        <ComboBox  x:Name="CModelo" Controls:TextBoxHelper.Watermark="Seleccione Modelo" SelectedIndex="0" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="41" Canvas.Top="182" Width="280" >
+                        <ComboBox  x:Name="CboModelo" Controls:TextBoxHelper.Watermark="Seleccione Modelo" SelectedIndex="0" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="41" Canvas.Top="182" Width="280" >
                             <ComboBox.Effect>
                                 <DropShadowEffect/>
                             </ComboBox.Effect>
                         </ComboBox>
 
                         <Label  Content="Marca" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="41" Canvas.Top="88"/>
-                        <ComboBox  x:Name="CMarca" Controls:TextBoxHelper.Watermark="Seleccione Marca"  SelectedIndex="0" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="41" Canvas.Top="122" Width="280" >
+                        <ComboBox  x:Name="CboMarca" Controls:TextBoxHelper.Watermark="Seleccione Marca"  SelectedIndex="0" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="41" Canvas.Top="122" Width="280" >
                             <ComboBox.Effect>
                                 <DropShadowEffect/>
                             </ComboBox.Effect>
@@ -149,27 +150,27 @@
                         <Label  Content="Año Automovil" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="41" Canvas.Top="214"/>
 
                         <Button x:Name="BtnAgregarAutomovil" Canvas.Left="41" Canvas.Top="335" Height="38" Width="280" Click="Vehiculo_Click" Content="Agregar Seguro Automovil" FontSize="14"  />
-                        <DatePicker Canvas.Left="41" Canvas.Top="248" Height="26" Width="280"/>
+                        <TextBox x:Name="TxtAnioVehiculo" Controls:TextBoxHelper.Watermark="Ingrese Año de Contruccion" Controls:TextBoxHelper.ClearTextButton="True"  Canvas.Left="41" Canvas.Top="248" Height="26" Width="280"/>
                     </Canvas>
                 </Controls:Flyout>
 
                 <!--Seguro Vivienda-->
-                <Controls:Flyout x:Name="SeguroVivienda" Visibility="Hidden" Width="455" Foreground="White" Header="Seguro Vivienda" Theme="Light" Margin="-586,-12,0,-185" Grid.RowSpan="2">
+                <Controls:Flyout x:Name="SeguroVivienda" Visibility="Hidden" Width="455" Foreground="White" Header="Seguro Vivienda" Theme="Light" Margin="-586,1,0,-198" Grid.RowSpan="2">
                     <Controls:Flyout.Background>
                         <SolidColorBrush Color="#FF252424" Opacity="0.9"/>
                     </Controls:Flyout.Background>
                     <Canvas>
-
-                        <TextBox x:Name="txtCodigoPostal" Canvas.Left="86" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Codigo Postal" Canvas.Top="23" Height="23" Width="259" />
+                        <Label  Content="Direccion" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="54"/>
+                        <TextBox x:Name="TxtCodigoPostal" Canvas.Left="86" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Ingrese Codigo Postal" Canvas.Top="23" Height="23" Width="259" />
                         <Label  Content="Valor Inmueble" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="110" RenderTransformOrigin="-3.148,-0.19"/>
-                        <TextBox x:Name="ValorVivienda" Controls:TextBoxHelper.Watermark="Ingrese Valor Inmueble" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="18.368,7.628" Foreground="Black" Canvas.Left="86" Canvas.Top="139" Width="259" >
+                        <TextBox x:Name="TxtValorVivienda" Controls:TextBoxHelper.Watermark="Ingrese Valor Inmueble" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="18.368,7.628" Foreground="Black" Canvas.Left="86" Canvas.Top="139" Width="259" >
                             <TextBox.Effect>
                                 <DropShadowEffect/>
                             </TextBox.Effect>
                         </TextBox>
 
-                        <Label  Content="Direccion" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="54"/>
-                        <TextBox x:Name="Direccion" Controls:TextBoxHelper.Watermark="Ingrese Direccion" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="18.368,7.628" Foreground="Black" Canvas.Left="86" Canvas.Top="83" Width="259" >
+                        <Label  Content="Codigo Postal" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="-6"/>
+                        <TextBox x:Name="TxtDireccion" Controls:TextBoxHelper.Watermark="Ingrese Direccion" Controls:TextBoxHelper.ClearTextButton="True" RenderTransformOrigin="18.368,7.628" Foreground="Black" Canvas.Left="86" Canvas.Top="83" Width="259" >
                             <TextBox.Effect>
                                 <DropShadowEffect/>
                             </TextBox.Effect>
@@ -190,7 +191,7 @@
                         </ComboBox>
 
                         <Label  Content="Año Contruccion" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="287"/>
-                        <DatePicker Canvas.Left="86" Canvas.Top="321" Height="26" Width="259"/>
+                        <TextBox x:Name="TxtAnioConstruccion" Controls:TextBoxHelper.Watermark="Ingrese Año de Contruccion" Controls:TextBoxHelper.ClearTextButton="True" Canvas.Left="86" Canvas.Top="321" Height="26" Width="259"/>
 
                         <Button x:Name="BtnAgregarVivienda" Canvas.Left="75" Canvas.Top="384" Height="38" Width="280" Click="Vivienda_Click" Content="Agregar Seguro Vivienda" FontSize="14"  />
                     </Canvas>
