@@ -9,6 +9,37 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         Title="Seguro BeLife Listar Clientes" Height="700" Width="1000" WindowStartupLocation="CenterScreen" ShowMinButton="False" ShowMaxRestoreButton="False" >
 
+    <Controls:MetroWindow.Resources>
+
+        <DataTemplate x:Key="SexoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EstadoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="ClienteTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding RutCliente}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding Nombres}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding Apellidos}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding FechaNacimiento}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding Descripcion}"/>
+                <TextBlock Text=" : "/>
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Controls:MetroWindow.Resources>
 
     <Grid>
         <Button x:Name="btninicio" HorizontalAlignment="Left" Margin="0,591,0,0" Click="btninicio_Click" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
@@ -28,9 +59,9 @@
 
 
         <Canvas RenderTransformOrigin="0.274,0.863"  >
-            <Grid Height="457" Width="972" Canvas.Left="10" Canvas.Top="120" Background="#FFEEE9E9">
+            <Grid Height="457" Width="972" Canvas.Left="12" Canvas.Top="120" Background="#FFEEE9E9">
 
-                <TextBox x:Name="LRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,763,413" Height="33" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="Black" Background="White" CaretBrush="White" >
+                <TextBox x:Name="TxtRut" ToolTip="16123456-0" Canvas.Left="47"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut"  Canvas.Top="34" Margin="10,0,763,413" Height="33" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" Foreground="Black" Background="White" CaretBrush="White" >
                     <TextBox.Effect>
                         <DropShadowEffect/>
                     </TextBox.Effect>
@@ -38,20 +69,23 @@
                 <Label Canvas.Left="47" Canvas.Top="75" Content="Rut" Foreground="Black" FontSize="14" RenderTransformOrigin="-0.054,0.535" FontWeight="Bold" Margin="10,16,849,446" />
 
                 <Label  Content="Sexo" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="195,15,670,447"/>
-                <ComboBox  x:Name="LSexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="275,11,501,413" ItemsSource="{Binding sexo, ElementName=metroWindow}" Foreground="White"  >
+                <ComboBox  x:Name="CboSexo" Controls:TextBoxHelper.Watermark="Seleccione Sexo" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="275,11,501,413"   
+                           IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}">
                     <ComboBox.Effect>
                         <DropShadowEffect/>
                     </ComboBox.Effect>
                 </ComboBox>
 
                 <Label  Content="Estado Civil" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="373,10,461,452"/>
-                <ComboBox  x:Name="LEstadoCivil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="552,11,217,413" ItemsSource="{Binding estadocivil, ElementName=metroWindow}" Foreground="Black"  >
+                <ComboBox  x:Name="CboEstadoCivil" Controls:TextBoxHelper.Watermark="Seleccione Estado Civil" Canvas.Left="47" SelectedIndex="0" Canvas.Top="239" Margin="552,11,217,413" 
+                           IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource SexoTemplate}">
                     <ComboBox.Effect>
                         <DropShadowEffect/>
                     </ComboBox.Effect>
                 </ComboBox>
 
-                <DataGrid HorizontalAlignment="Left" Height="200" Margin="8,120,0,0" VerticalAlignment="Top"   Foreground="White" Background="#FFAEAEAE" OpacityMask="White" CanUserAddRows="False" CanUserDeleteRows="False" RenderTransformOrigin="0.5,0.5" Width="948">
+                <DataGrid x:Name="GrdClientes" HorizontalAlignment="Left" Height="200" Margin="13,120,0,0" VerticalAlignment="Top" Background="#FFAEAEAE" OpacityMask="White" CanUserAddRows="False" CanUserDeleteRows="False" RenderTransformOrigin="0.5,0.5" Width="948"
+                          IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource ClienteTemplate}">
                     <DataGrid.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -63,18 +97,10 @@
                     <DataGrid.Effect>
                         <DropShadowEffect/>
                     </DataGrid.Effect>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="ID" Foreground="White"/>
-                        <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Nombre" Foreground="White"/>
-                        <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Apellido" Foreground="White"/>
-                        <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Sexo" Foreground="White"/>
-                        <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Estado Civil" Foreground="White"/>
-                    </DataGrid.Columns>
-
 
                 </DataGrid>
-                <Button Content="Filtrar" HorizontalAlignment="Left" Margin="827,67,0,0" VerticalAlignment="Top" Width="96" Height="34" FontSize="14"/>
-
+                <Button x:Name="BtnFiltrar" Content="Filtrar" HorizontalAlignment="Left" Margin="700,67,0,0" VerticalAlignment="Top" Width="96" Height="34" FontSize="14" Click="BtnFiltrar_Click"/>
+                <Button x:Name="BtnBorrarFiltro" Content="BORRAR FILTRO" HorizontalAlignment="Left" Margin="827,67,0,0" VerticalAlignment="Top" Width="122" Height="34" FontSize="14" Click="BtnBorrarFiltro_Click" />
 
             </Grid>
         </Canvas>

@@ -32,7 +32,7 @@
                     <RowDefinition Height="143*"/>
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
-                <Label Content="Nº Contrato" Width="103" Foreground="Black" FontSize="14" FontWeight="Bold" Margin="10,30,441,227" RenderTransformOrigin="0.544,-0.196"/>
+                <Label Content="Nº Contrato" Width="103" Foreground="Black" FontSize="14" FontWeight="Bold" Margin="40,10,411,247" RenderTransformOrigin="0.544,-0.196"/>
 
                 <TextBox x:Name="CRut" ToolTip="16123456-0"   Controls:TextBoxHelper.ClearTextButton="True"  Controls:TextBoxHelper.Watermark="Ingrese su Rut" Margin="124,0,174,178" Height="32" VerticalAlignment="Bottom" MaxLines="1" MaxLength="9" FontWeight="Bold" Foreground="Black" SelectionBrush="Black" CaretBrush="White" >
                     <TextBox.Effect>
@@ -48,7 +48,7 @@
                 </TextBox>
 
                 <Label Content="Nombres" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="10,120,469,137"/>
-                <TextBox x:Name="CnContrato" Controls:TextBoxHelper.Watermark="Ingrese Numero Contrato" Controls:TextBoxHelper.ClearTextButton="True" Margin="120,27,174,227" IsReadOnly="True" IsUndoEnabled="False" MaxLines="2147483646" Foreground="Black" >
+                <TextBox x:Name="CnContrato" Controls:TextBoxHelper.Watermark="Ingrese Numero Contrato" Controls:TextBoxHelper.ClearTextButton="True" Margin="150,7,144,247" IsReadOnly="True" IsUndoEnabled="False" MaxLines="2147483646" Foreground="Black" >
                     <TextBox.Effect>
                         <DropShadowEffect/>
                     </TextBox.Effect>
@@ -89,7 +89,7 @@
                 <Button x:Name="btnVehiculo" Content="Seguro Vehiculo" HorizontalAlignment="Left" Margin="749,100,-340,-144" Click="Vehiculo_Click" VerticalAlignment="Top" Width="145" Height="50" Background="#FFEAEAEA"  BorderBrush="#FF803A82" Grid.Row="1" />
 
                 <Button Content="Eliminar" Canvas.Left="266" Canvas.Top="346" Margin="198,100,258,-138" Grid.Row="1" FontSize="14" BorderBrush="Black"/>
-                <Button Content="Buscar" HorizontalAlignment="Left" Margin="441,28,0,0" VerticalAlignment="Top" Width="103" Height="31" FontSize="14" BorderBrush="Black" />
+                <Button Content="Buscar" HorizontalAlignment="Left" Margin="441,10,0,0" VerticalAlignment="Top" Width="103" Height="31" FontSize="14" BorderBrush="Black" />
                 <Button Content="Listar " HorizontalAlignment="Left" Margin="441,76,0,0" VerticalAlignment="Top" Width="103" FontSize="14" BorderBrush="Black"/>
                 <Button Content="Guardar" HorizontalAlignment="Left" Margin="40,100,0,-138" VerticalAlignment="Top" Width="105" Grid.Row="1" Height="44" FontSize="14" BorderBrush="Black"/>
 
@@ -125,7 +125,7 @@
                     </TextBlock.Effect><Run Text="Sin pre"/><Run Text="-"/><Run Text="exi"/><Run Text="s"/><Run Text="tencia"/></TextBlock>
 
                 <!--Seguro Vehiculo-->
-                <Controls:Flyout x:Name="SeguroVehiculo" Visibility="Collapsed" Width="455" Foreground="White" Header="Seguro Vehiculo" Theme="Light" Margin="-586,1,0,-198" Grid.RowSpan="2">
+                <Controls:Flyout x:Name="SeguroVehiculo" Visibility="Collapsed" Width="455" Foreground="White" Header="Seguro Vehiculo" Theme="Light" Margin="-1046,-12,0,-185" Grid.RowSpan="2">
                     <Controls:Flyout.Background>
                         <SolidColorBrush Color="#FF252424" Opacity="0.9"/>
                     </Controls:Flyout.Background>
@@ -155,7 +155,7 @@
                 </Controls:Flyout>
 
                 <!--Seguro Vivienda-->
-                <Controls:Flyout x:Name="SeguroVivienda" Visibility="Hidden" Width="455" Foreground="White" Header="Seguro Vivienda" Theme="Light" Margin="-586,1,0,-198" Grid.RowSpan="2">
+                <Controls:Flyout x:Name="SeguroVivienda" Visibility="Hidden" Width="455" Foreground="White" Header="Seguro Vivienda" Theme="Light" Margin="-1046,1,0,-198" Grid.RowSpan="2">
                     <Controls:Flyout.Background>
                         <SolidColorBrush Color="#FF252424" Opacity="0.9"/>
                     </Controls:Flyout.Background>

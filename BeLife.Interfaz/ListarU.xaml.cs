@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using MahApps.Metro.Behaviours;
+using BeLife.Negocio;
 
 namespace BeLife.Interfaz
 {
@@ -25,8 +26,33 @@ namespace BeLife.Interfaz
         public ListarU()
         {
             InitializeComponent();
+            LimpiaDatos();
+            CargaClientes();
         }
 
+        private void CargaClientes()
+        {
+            Cliente cliente = new Cliente();
+            GrdClientes.ItemsSource = cliente.ReadAll();
+
+        }
+
+        private void LimpiaDatos()
+        {
+            TxtRut.Text = "";
+            CargaDatos();
+        }
+
+        private void CargaDatos()
+        {
+            Sexo sexo = new Sexo();
+            CboSexo.ItemsSource = sexo.ReadAll();
+            CboSexo.SelectedIndex = -1;
+
+            EstadoCivil estadoCivil = new EstadoCivil();
+            CboEstadoCivil.ItemsSource = estadoCivil.ReadAll();
+            CboEstadoCivil.SelectedIndex = -1;
+        }
 
         private void ListarUsuarios(object sender, RoutedEventArgs e)
         {
@@ -46,5 +72,76 @@ namespace BeLife.Interfaz
             this.Close();
         }
 
+        private void BtnFiltrar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                //Lee los controles de la interfaz.
+                string rut = TxtRut.Text;
+
+                Sexo sexo = new Sexo();
+                sexo.Id = CboSexo.SelectedIndex + 1;
+
+                EstadoCivil estado = new EstadoCivil();
+                estado.Id = CboEstadoCivil.SelectedIndex + 1;
+
+                Cliente cliente = new Cliente();
+
+                //Solo Rut
+                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && !estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAll(rut);
+                }
+                //Solo Sexo
+                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && !estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAllBySexo(sexo.Id);
+                }
+                //Solo Estado
+                if (String.IsNullOrEmpty(rut) != false && !sexo.Read() && estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAllByEstadoCivil(estado.Id);
+                }
+                //Rut y Sexo
+                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && !estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAllRutSexo(rut, sexo.Id);
+                }
+                //Rut y Estado
+                if (String.IsNullOrEmpty(rut) == false && !sexo.Read() && estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAllRutEstado(rut, estado.Id);
+                }
+                //Sexo y Estado
+                if (String.IsNullOrEmpty(rut) != false && sexo.Read() && estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAll(sexo.Id, estado.Id);
+                }
+                //Rut, Sexo y Estado
+                if (String.IsNullOrEmpty(rut) == false && sexo.Read() && estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAll(rut, sexo.Id, estado.Id);
+                }
+                //NINGUNO
+                if (String.IsNullOrEmpty(rut) != false && !sexo.Read() && !estado.Read())
+                {
+                    GrdClientes.ItemsSource = cliente.ReadAll();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
+
+        private void BtnBorrarFiltro_Click(object sender, RoutedEventArgs e)
+        {
+            TxtRut.Text = "";
+            CboEstadoCivil.SelectedIndex = -1;
+            CboSexo.SelectedIndex = -1;
+        }
     }
 }
