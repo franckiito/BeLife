@@ -13,7 +13,6 @@ namespace BeLife.UnitTest
             //Arrange 
             var resultadoEsperado = true;
 
-
             var idMarca = 1;
             var nombreMarca = "Marca 1";
 
