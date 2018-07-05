@@ -52,6 +52,7 @@
     <Compile Include="ContratoVehiculo.cs" />
     <Compile Include="ContratoVivienda.cs" />
     <Compile Include="MarcaModelo.cs" />
+    <Compile Include="RegionComuna.cs" />
     <Compile Include="TipoContrato.cs" />
     <Compile Include="Modelo.cs" />
     <Compile Include="Marca.cs" />

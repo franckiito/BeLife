@@ -24,35 +24,35 @@ namespace BeLife.Negocio
         }
 
         /// <summary>
-        /// Retorna todos los registros de la tabla MarcaModelo.
+        /// Busca los modelos asociados a una Marca.
         /// </summary>
-        /// <returns>List<Marca></returns>
-        //public List<MarcaModeloVehiculo> ReadAll()
-        //{
-        //    BeLifeEntities bbdd = new BeLifeEntities();
-
-        //    try
-        //    {
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Error al leer las marca. " + ex.Message);
-        //    }
-        //}
-
-        private List<Marca> SyncList(List<Entity.MarcaVehiculo> listaDatos)
+        /// <returns>List<Modelo></returns>
+        public List<Modelo> ReadModelosMarca()
         {
-            List<Marca> list = new List<Marca>();
+            List<Modelo> modelos = new List<Modelo>();
 
-            foreach (var x in listaDatos)
+            BeLifeEntities bbdd = new BeLifeEntities();
+
+            try
             {
-                Marca marca = new Marca();
-                CommonBC.Syncronize(x, marca);
-                list.Add(marca);
+                var modeloVehiculos = bbdd.MarcaModeloVehiculo.Where(x => x.IdMarca == Marca.Id);
+                foreach (var models in modeloVehiculos)
+                {
+                    Modelo modelo = new Modelo
+                    {
+                        Id = models.IdModelo
+                    };
+                    modelo.Read();
+                    modelos.Add(modelo);
+                }
+                return modelos;
             }
-
-            return list;
+            catch (Exception ex)
+            {
+                throw new Exception("Error al buscar los modelos de la marca. " + ex.Message);
+            }
         }
+        
+        
     }
 }
