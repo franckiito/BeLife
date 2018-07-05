@@ -27,6 +27,20 @@ namespace BeLife.Interfaz
         public Contratos()
         {
             InitializeComponent();
+            LimpiaDatos();
+        }
+
+        private void LimpiaDatos()
+        {
+            CargaTipoContrato();
+        }
+
+        private void CargaTipoContrato()
+        {
+            CboTipoContrato.ItemsSource = null;
+            TipoContrato tipoContrato = new TipoContrato();
+            CboTipoContrato.ItemsSource = tipoContrato.ReadAll();
+            CboTipoContrato.SelectedIndex = -1;
         }
 
         private void AdministradorContrato_Click(object sender, RoutedEventArgs e)
@@ -165,6 +179,16 @@ namespace BeLife.Interfaz
             }
         }
 
-       
+        private void CboTipoContrato_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Plan plan = new Plan();
+            var x = (TipoContrato)CboTipoContrato.Items.CurrentItem;
+            if(x != null)
+            {
+                plan.TipoContrato.Id = x.Id;
+                CboPlan.ItemsSource = plan.ReadAllByTipoContrato();
+                CboPlan.SelectedIndex = -1;
+            }
+        }
     }
 }

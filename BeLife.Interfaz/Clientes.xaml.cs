@@ -179,13 +179,13 @@ namespace BeLife.Interfaz
             TxtNombres.Text = "";
             TxtApellidos.Text = "";
             FechaNacimiento.SelectedDate = DateTime.Today;
-            cargaDatos();
+            CargaDatos();
         }
 
         /// <summary>
         /// Carga los combobox Sexo y Estado con los datos de la BD
         /// </summary>
-        private void cargaDatos()
+        private void CargaDatos()
         {
             Sexo sexo = new Sexo();
             CboSexo.ItemsSource = sexo.ReadAll();

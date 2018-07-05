@@ -10,6 +10,22 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib"
         Title="Seguro BeLife Contratos" Height="700" Width="1000" WindowStartupLocation="CenterScreen" ShowMinButton="False" ShowMaxRestoreButton="False" >
 
+    <Controls:MetroWindow.Resources>
+
+        <DataTemplate x:Key="TipoContratoTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Descripcion}"/>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="PlanTemplate">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Nombre}"/>
+            </StackPanel>
+        </DataTemplate>
+
+    </Controls:MetroWindow.Resources>
+
 
     <Grid>
         <Button x:Name="btninicio" HorizontalAlignment="Left" Margin="0,591,0,0" Click="btninicio_Click" VerticalAlignment="Top" Width="83" Height="68" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"  >
@@ -63,14 +79,16 @@
                 </TextBox>
 
                 <Label  Content="Tipo Contrato" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="10,206,429,48"/>
-                <ComboBox x:Name="CboTipoContrato" Controls:TextBoxHelper.Watermark="Seleccione el Tipo de Contrato" Canvas.Left="136" Canvas.Top="212" Margin="124,210,174,48">
+                <ComboBox x:Name="CboTipoContrato" Controls:TextBoxHelper.Watermark="Seleccione el Tipo de Contrato" Canvas.Left="136" Canvas.Top="212" Margin="124,210,174,48" SelectionChanged="CboTipoContrato_SelectionChanged"
+                          IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource TipoContratoTemplate}">
                     <ComboBox.Effect>
                         <DropShadowEffect/>
                     </ComboBox.Effect>
                 </ComboBox>
 
                 <Label  Content="Plan" Foreground="Black" FontWeight="Bold" FontSize="14" Margin="10,250,429,10"/>
-                <ComboBox x:Name="CboPlan" Controls:TextBoxHelper.Watermark="Seleccione su Plan" SelectedIndex="0" Margin="124,254,174,5" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" >
+                <ComboBox x:Name="CboPlan" Controls:TextBoxHelper.Watermark="Seleccione su Plan" SelectedIndex="0" Margin="124,254,174,5" Foreground="Black" BorderBrush="#FF0A0808" 
+                          IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" ItemTemplate="{StaticResource PlanTemplate}">
                     <ComboBox.Effect>
                         <DropShadowEffect/>
                     </ComboBox.Effect>
@@ -177,14 +195,14 @@
                         </TextBox>
 
                         <Label  Content="Region" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="167"/>
-                        <ComboBox  x:Name="CboRegion" Controls:TextBoxHelper.Watermark="Seleccione Region"  SelectedIndex="0" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="86" Canvas.Top="196" Width="259" >
+                        <ComboBox  x:Name="CboRegion" Controls:TextBoxHelper.Watermark="Seleccione Region"  SelectedIndex="0" Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="86" Canvas.Top="196" Width="259" >
                             <ComboBox.Effect>
                                 <DropShadowEffect/>
                             </ComboBox.Effect>
                         </ComboBox>
 
                         <Label  Content="Comuna" Foreground="#FFFBF5F5" FontWeight="Bold" FontSize="14" Canvas.Left="86" Canvas.Top="222"/>
-                        <ComboBox  x:Name="CboComuna" Controls:TextBoxHelper.Watermark="Seleccione Comuna" SelectedIndex="0" ItemsSource="{Binding Opcioness, ElementName=metroWindow}"  Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="86" Canvas.Top="256" Width="259" >
+                        <ComboBox  x:Name="CboComuna" Controls:TextBoxHelper.Watermark="Seleccione Comuna" SelectedIndex="0" Foreground="Black" BorderBrush="#FF0A0808" RenderTransformOrigin="0.5,0.5" Canvas.Left="86" Canvas.Top="256" Width="259" >
                             <ComboBox.Effect>
                                 <DropShadowEffect/>
                             </ComboBox.Effect>

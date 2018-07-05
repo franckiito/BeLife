@@ -24,9 +24,9 @@ namespace BeLife.Negocio
         }
 
         /// <summary>
-        /// Busca los modelos asociados a una Marca.
+        /// Busca las comunas asociados a una region.
         /// </summary>
-        /// <returns>List<Modelo></returns>
+        /// <returns>List<Comuna></returns>
         public List<Comuna> ReadComunasRegion()
         {
             List<Comuna> comunas = new List<Comuna>();
